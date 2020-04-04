@@ -27,10 +27,10 @@ const createPost = (req, res) => {
     console.log("REQPARAMS:", req.params.id)
     console.log(req.body,"here i am dude")
 
-    const { id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3 } = req.body
-    let sql = 'insert into mockData (id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3) value (?,?,?,?,?,?,?,?)'
+    const { id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug } = req.body
+    let sql = 'insert into mockData (id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug) value (?,?,?,?,?,?,?,?,?)'
     // const replacements = [req.body.description,req.body.Address]
-    sql = mysql.format(sql, [id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3])
+    sql = mysql.format(sql, [id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug])
     pool.query(sql,  (err, results) => {
       if (err) return handleSQLError(res, err)
       return res.json({ newId: results.insertId });
@@ -41,6 +41,7 @@ const updatePostById = (req, res) => {
   // const isLiked = [ req.body.isLiked1, req.body.isLiked2, req.body.isLiked3 ]
   let sql = "UPDATE mockData SET isLiked1 = ?, isLiked2 = ?, isLiked3 = ? WHERE id = ?"
   sql = mysql.format(sql, [ req.body.isLiked1, req.body.isLiked2, req.body.isLiked3, req.params.id ])
+  console.log("update***", req)
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
     return res.status(204).json();

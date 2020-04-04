@@ -83,6 +83,16 @@
   margin-left: 20000px;
 }
 
+.blueButton{
+  background-color: blue;
+  color: white;
+}
+
+.greenButton{
+  background-color: green;
+  color: white
+}
+
 .blackButton{
   background-color: black;
   color: white;
@@ -92,3 +102,5 @@
   background-color: white;
   color: black;
 }
+
+.unlist { color: #16150f; font-family: 'Raleway',sans-serif; font-size: 15px; line-height: 22px;  }

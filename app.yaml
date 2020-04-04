@@ -1,12 +1,10 @@
 runtime: nodejs10
-handlers: 
+entrypoint: node ./server/server.js 
+
+env_variables:
+  CLOUD_INSTANCE: dme4me:us-central1:company-data
 
 
-- url: /(.*\..+)$
-  static_files: build/\1
-  upload: build/(.*\..+)$
-
-
-- url: /.*
-  static_files: build/index.html
-  upload: build/index.html
+instance_class: F2
+resources:
+  memory_gb: 0.25

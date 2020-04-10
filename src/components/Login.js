@@ -28,28 +28,29 @@ login = (e) => {
 render() {
   return (
     <div className="App" >
-      <Container maxWidth="sm" style={{height: "600px", width: "250px", paddingBottom: "280px", marginTop: "50px"}}>
+      <Container maxWidth="sm" style={{height: "600px", width: "250px", paddingBottom: "280px", marginTop: "100px"}}>
         <form className="login-form" onSubmit={this.login}>
-          <TextField
+          <TextField style={{width: "200px"}}
             required
             onChange={this.handleTextChange}  
             value={this.state.username}
             name="username"
             label="Username"
             type="text" />
-          <TextField
+          <TextField style={{width: "200px"}}
             required
             onChange={this.handleTextChange}
             value={this.state.password}
             name="password"
             label="Password"
             type="password" />
-          <Button style = {{marginTop: "20px"}}
+          <Button style = {{marginTop: "30px", width: "200px"}}
             type="submit"
             className="login-button"
             variant="contained"
             color="primary">Login</Button>
         </form>
+        <h6>SmallBizBugTracker ©2020</h6>
       </Container>
     </div>
   );

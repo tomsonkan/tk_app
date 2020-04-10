@@ -37,6 +37,14 @@
   }
 }
 
+body {
+  background: #F0F2F5
+}
+
+.add-bus {
+  width: 300px
+}
+
 .card-container1 {
   display: flex;
   justify-content: right;
@@ -104,3 +112,45 @@
 }
 
 .unlist { color: #16150f; font-family: 'Raleway',sans-serif; font-size: 15px; line-height: 22px;  }
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: "\1F41D"
+}
+
+.nav-list-item{
+  margin-right: 30px;
+}
+
+.lnk {
+  color: white;
+  text-decoration: none
+}
+
+.lnk:hover {
+  text-decoration: underline; 
+}
+
+.bottomRoot {
+  background-color: blue;
+}
+
+.foot {
+    background-color:  rgb(61, 59, 192);
+    color: white;
+    min-height: 2rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: -20px;
+    padding-bottom: 20px;
+}
+
+.ticTitle {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+ul {
+  list-style-type: square
+}

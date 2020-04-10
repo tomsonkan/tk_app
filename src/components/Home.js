@@ -7,8 +7,16 @@ import {
       Divider,
       TableCell,
       Grid,
-      Avatar
+      Avatar,
+      BottomNavigation,
+      BottomNavigationAction,
+      AppBar
+      
     } from '@material-ui/core'
+import FolderIcon from '@material-ui/icons/Folder';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 // import { makeStyles } from '@material-ui/core/styles'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -64,19 +72,19 @@ console.log(props.reqs.length)
     {document.cookie == "loggedIn=true" ? ( 
     <>
    
-    <Container maxWidth="lg" className="car-container" style={{height: "60px", width: "500px", marginTop:"50px", marginBottom:"70px", justifyContent:"center"}}>
+    <Container maxWidth="lg" className="car-container" style={{height: "60px", width: "500px", marginTop:"50px", paddingBottom: "200px", justifyContent:"center"}}>
       <br/>
       <div className = "flex-container">
-        <Grid container justify="center" spacing={3}>
-          <h2 >Welcome! Lets Add Some Tickets</h2>
+        <Grid container justify="center" spacing={1} style={{marginTop:"40px"}}>
+          <h2 className= "ticTitle">Welcome! Lets Add Some Tickets</h2>
           <AddReq style={{alignContent:"flex-start"}} busTotal={props.reqs.length}/>
           <br/>
           {/* <AddReq1 busTotal={props.reqs.length}/> */}
         </Grid>
       </div>
     </Container>
-    <div className="card-container1">
-    <Container><h2>High Priority Tickets: {props.reqs.filter(item => item.lvl === 'High').length}</h2></Container> 
+    <div className="card-container1" style={{ marginBottom: "50px"}}>
+    <Container><h2 className= "ticTitle">High Priority Tickets: <span style={{fontSize: '30px', fontWeight: "Normal", color: "Red"}}>{props.reqs.filter(item => item.lvl === 'High').length}</span></h2></Container> 
       {props.reqs.length === 0 ? props.fetchReqs() :  
           props.reqs.map((req, idx) => (
             <Card key={req.id} className="card">
@@ -84,8 +92,7 @@ console.log(props.reqs.length)
               <>
               <CardContent className="text-gray1" theme = {theme}>
                 <Grid container alignItems="flex-start" justify="space-evenly" direction="row">
-                  <h2>BUG ID:         
-                  </h2>
+                  <h2 className= "ticTitle">BUG ID:  </h2>
                   <Avatar className = "av1" aria-label="recipe"  style={{color: 'mediumblue'}}>
                   {req["id"]}
                   </Avatar>
@@ -119,16 +126,15 @@ console.log(props.reqs.length)
     }
     </div> 
     
-    <div className="card-container2" style={{marginTop:"120px"}}>
-      <Container><h2>Medium Priority Tickets: {props.reqs.filter(item => item.lvl === 'Medium').length}</h2></Container>
+    <div className="card-container2" style={{marginTop:"20px", marginBottom: "40px"}}>
+      <Container><h2 className= "ticTitle">Medium Priority Tickets: <span style={{fontSize: '30px', fontWeight: "Normal", color: "Blue"}}>{props.reqs.filter(item => item.lvl === 'Medium').length}</span></h2></Container>
       {props.reqs.length === 0 ? props.fetchReqs() :props.reqs.map((req, idx) => (
         <Card key={idx} className="card1">
           {req["lvl"] == "Medium" ? 
             <>
             <CardContent className="text-gray2" >
               <Grid container alignItems="flex-start" justify="space-evenly" direction="row">
-                <h3>BUG ID:         
-                </h3>
+                <h2 className= "ticTitle">BUG ID:</h2>
                 <Avatar className = "av2" aria-label="recipe"  style={{color: 'mediumblue'}}>
                 {req["id"]}
                 </Avatar>
@@ -158,16 +164,15 @@ console.log(props.reqs.length)
       ))}
     </div>  
 
-    <div className="card-container3" style={{marginTop:"120px"}}>
-      <Container><h2>Low Priority Tickets: {props.reqs.filter(item => item.lvl === 'Low').length}</h2></Container>
+    <div className="card-container3" style={{marginTop:"20px", marginBottom: "40px"}}>
+      <Container><h2 className= "ticTitle">Low Priority Tickets: <span style={{fontSize: '30px', fontWeight: "Normal", color: "Green", paddingBottom: "100px"}}>{props.reqs.filter(item => item.lvl === 'Low').length}</span></h2></Container>
       {props.reqs.length === 0 ? props.fetchReqs() :props.reqs.map((req, idx) => (
         <Card key={idx} className="card1">
           {req["lvl"] == "Low" ? 
             <>
             <CardContent className="text-gray3" >
               <Grid container alignItems="flex-start" justify="space-evenly" direction="row">
-                <h3>BUG ID:         
-                </h3>
+                <h2 className= "ticTitle">BUG ID: </h2>
                 <Avatar className = "av2" aria-label="recipe"  style={{color: 'mediumblue'}}>
                 {req["id"]}
                 </Avatar>
@@ -195,8 +200,21 @@ console.log(props.reqs.length)
             }
         </Card> 
       ))}
-    </div>  
-  </>)
+    </div>
+    <Container className="foot">
+      <div className="foot">
+    
+      <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+      <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+      <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+    
+    <h4 className= "ticTitle">SmallBizBugTracker ©2020</h4>
+    </div>
+    </Container>
+  </>
+  
+  )
   : null}
   </>
   )

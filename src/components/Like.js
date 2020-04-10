@@ -83,7 +83,7 @@ class Like extends Component {
 
   render() {
     console.log(this.props , "render")
-    return <div>
+    return <div className= "ticTitle">
       Status:
       <button 
         className = {this.props.req.isLiked1 == "1" ? "blackButton" : "whiteButton"} 

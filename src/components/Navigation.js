@@ -18,32 +18,35 @@ const Navigation = (props) => {
   }
 
   return (
-    <AppBar position="relative" color="primary">
+    <AppBar position="fixed" style={{display: 'flex', boxShadow: 'none'}}color="primary">
           <Toolbar>
               <IconButton color="inherit">
                   <MenuIcon />
               </IconButton>
               <Typography variant="h6" style={{ flexGrow: "1" }}>
-                  Small Business Bugs
+                  SmallBizBugTracker
               </Typography>
-              <ul className="nav-list" color="textPrimary">
+              <div className="nav-list1">
+              <ul className="nav-list" color="textSecondary">
                   <li className="nav-list-item" >
-                      <Link to="/login" className = "lnk">Home</Link>
+                      <Link to="/login" className = "lnk">HOME</Link>
                   </li>
                  
                 {document.cookie == "loggedIn=true" ? (
                 <>
                 <li className="nav-list-item"
                     onClick={handleLogout}>
-                    <Link to="/" className = "lnk" >Logout</Link>
+                    <Link to="/" className = "lnk" >LOGOUT</Link>
                 </li>
                 </>
                 ):(
                 <li className="nav-list-item">
-                <Link to="/login" className = "lnk">Login</Link>
+                    <Link to="/login" className = "lnk">Login</Link>
                 </li>
+                
             )}
               </ul>
+              </div>
           </Toolbar>
       </AppBar>
   )

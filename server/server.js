@@ -23,7 +23,11 @@ app.use("/api", postRouter);
 
 
 // general
-app.use(express.static(path.join(__dirname, "../build")));
+// app.use(express.static(path.join(__dirname, "../build")));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 // general
 app.get("*", function(req, res) {

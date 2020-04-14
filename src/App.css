@@ -205,8 +205,10 @@ body {
     color: white;
     min-height: 2rem;
     text-align: center;
-    width: 122%;
-    margin-left: -15%;
+    width: 100%;
+    margin-left: -25%;
+    padding-left: 25%;
+    padding-right: 25%;
     margin-bottom: -100px;
     padding-bottom: 20px;
 

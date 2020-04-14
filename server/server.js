@@ -26,7 +26,7 @@ app.use("/api", postRouter);
 app.use(express.static(path.join(__dirname, "../build")));
 
 // general
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
   console.log("you got it bro XD");
   res.send("This is working!!!!")
   res.sendFile(path.join(__dirname, "../build", "index.html"));

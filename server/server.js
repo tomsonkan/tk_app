@@ -25,12 +25,16 @@ app.use("/api", postRouter);
 // general
 // app.use(express.static(path.join(__dirname, "../build")));
 
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+// }
+
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+  app.use(express.static('build'));
+  }
 
 // general
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
   console.log("you got it bro XD");
   res.send("This is working!!!!")
   res.sendFile(path.join(__dirname, "../build", "index.html"));

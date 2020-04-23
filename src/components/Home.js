@@ -133,7 +133,7 @@ console.log(props.reqs.length)
               <Like req = {req} refresh= {() => {refreshPage()} }/> 
             </CardContent>
             <Divider />
-              <CardActions style={{ color: 'mediumblue'}} className="del">
+              <CardActions style={{ color: 'mediumblue', paddingLeft: '1.5em', fontWeight:'bold'}} className="del">
                   <Link to={`/req/${req.id}`} > MORE INFORMATION</Link>
                   {/* <RemoveReq /> */}
                   <TableCell>
@@ -171,7 +171,7 @@ console.log(props.reqs.length)
               <Like req = {req} refresh= {() => {refreshPage()} }/>
             </CardContent>
             <Divider />
-              <CardActions style={{ color: 'mediumgreen' }} className="del">
+              <CardActions style={{ color: 'mediumgreen', paddingLeft: '1.5em', fontWeight:'bold' }} className="del">
                   <Link to={`/req/${req.id}`}>MORE INFORMATION</Link>
                   {/* <RemoveReq /> */}
                   <TableCell>

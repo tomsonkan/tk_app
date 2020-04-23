@@ -27,10 +27,10 @@ const createPost = (req, res) => {
     console.log("REQPARAMS:", req.params.id)
     console.log(req.body,"here i am dude")
 
-    const { id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug } = req.body
-    let sql = 'insert into mockData (id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug) value (?,?,?,?,?,?,?,?,?)'
+    const { id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug, Descr } = req.body
+    let sql = 'insert into mockData (id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug, Descr) value (?,?,?,?,?,?,?,?,?,?)'
     // const replacements = [req.body.description,req.body.Address]
-    sql = mysql.format(sql, [id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug])
+    sql = mysql.format(sql, [id, first_name, last_name, email, lvl, isLiked1, isLiked2, isLiked3, Bug, Descr])
     pool.query(sql,  (err, results) => {
       if (err) return handleSQLError(res, err)
       return res.json({ newId: results.insertId });

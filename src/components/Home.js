@@ -33,24 +33,6 @@ import Like from '../containers/Like'
 const Home = (props) => {
 
 
-  // function myFunction() {
-  //   var d = new Date();
-  //   var n = d.valueOf();
-  //   return n;
-    
-  // }
-
-//   const theme = createMuiTheme({
-//     palette: {
-//         primary: { main: '#228e22' },
-//         secondary: { main: '#4d4d4d' },
-//     },
-//     typography: {
-//         useNextVariants: true,
-//         fontFamily: '"Montserrat", Arial, Helvetica, sans-serif',
-//     },
-// })
-
   function refreshPage() {
     window.location.reload(false);
   }
@@ -110,8 +92,8 @@ console.log(props.reqs.length)
                 <Like req = {req} refresh= {() => {refreshPage()} }/>
               </CardContent>
               <Divider />
-              <CardActions style={{ color: 'mediumblue' }} className="del">
-                  <Link to={`/req/${req.id}`}>See More Details</Link>
+              <CardActions className = "actions" style={{ color: 'mediumblue', paddingLeft: '1.5em', fontWeight:'bold'  }} className="del">
+                  <Link to={`/req/${req.id}`}>MORE INFORMATION</Link>
                   {/* <RemoveReq /> */}
                   <TableCell>
                     <DeleteOutlinedIcon  onClick = {() => {props.removeTic(req); refreshPage() }}
@@ -151,8 +133,8 @@ console.log(props.reqs.length)
               <Like req = {req} refresh= {() => {refreshPage()} }/> 
             </CardContent>
             <Divider />
-              <CardActions style={{ color: 'mediumblue' }} className="del">
-                  <Link to={`/req/${req.id}`}>See More Details</Link>
+              <CardActions style={{ color: 'mediumblue'}} className="del">
+                  <Link to={`/req/${req.id}`} > MORE INFORMATION</Link>
                   {/* <RemoveReq /> */}
                   <TableCell>
                   <DeleteOutlinedIcon onClick = {() => {props.removeTic(req); refreshPage() }}
@@ -190,7 +172,7 @@ console.log(props.reqs.length)
             </CardContent>
             <Divider />
               <CardActions style={{ color: 'mediumgreen' }} className="del">
-                  <Link to={`/req/${req.id}`}>See More Details</Link>
+                  <Link to={`/req/${req.id}`}>MORE INFORMATION</Link>
                   {/* <RemoveReq /> */}
                   <TableCell>
                   <DeleteOutlinedIcon onClick = {() => {props.removeTic(req); refreshPage() }}
@@ -203,13 +185,15 @@ console.log(props.reqs.length)
         </Card> 
       ))}
     </div>
-      <div className="foot">
+    <Grid className="foot">
+      <div >
         <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
         <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
         <h4 className= "ticTitle">SmallBizBugTracker ©2020</h4>
        </div>
+    </Grid>
     </div>
     </div>
   </>

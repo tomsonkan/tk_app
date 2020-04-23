@@ -23,7 +23,8 @@ class AddReq extends Component {
     isLiked1: true, 
     isLiked2: false, 
     isLiked: false,
-    Project:''
+    Project:'',
+    Des:''
   }
 
 
@@ -46,7 +47,8 @@ handleLevelChange = (e) => {
         Hours: this.state.Hours,
         Address: this.state.Address,
         Level:e.target.value,
-        Project: this.state.Project
+        Project: this.state.Project,
+        Des: this.state.Des
       })
     } else if (e.target.value === "Medium") {
       this.setState({
@@ -56,7 +58,8 @@ handleLevelChange = (e) => {
         Hours: this.state.Hours,
         Address: this.state.Address,
         Level:e.target.value,
-        Project: this.state.Project
+        Project: this.state.Project,
+        Des: this.state.Des
       }) 
     } else if (e.target.value === "High") {
       this.setState({
@@ -66,7 +69,8 @@ handleLevelChange = (e) => {
         Hours: this.state.Hours,
         Address: this.state.Address,
         Level:e.target.value,
-        Project: this.state.Project
+        Project: this.state.Project,
+        Des: this.state.Des
     })
 }
 
@@ -104,7 +108,8 @@ handleSubmit = (e) => {
       isLiked1: true,
       isLiked2: false,
       isLiked3: false,
-      Bug: this.state.Project
+      Bug: this.state.Project,
+      Descr: this.state.Des
       })
 
       })
@@ -129,7 +134,8 @@ componentDidUpdate = (prevProps, prevState) => {
       isLiked1: true, 
       isLiked2: false, 
       isLiked: false,
-      Project:''
+      Project:'',
+      Des:''
     })
     this.props.fetchReqs()
   }
@@ -194,6 +200,12 @@ render() {
                               <MenuItem value={'High'}>High</MenuItem>
                             </Select>
                             </FormControl>  
+                            <TextField 
+                                id="Des" 
+                                placeholder="Description" 
+                                value={this.state.Des} 
+                                onChange={this.handleTextChange} 
+                                required />
                         <br />
                     <Button variant="contained" color="primary" type="submit">Submit</Button>
               </form>

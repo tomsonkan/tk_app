@@ -86,7 +86,7 @@ handleSubmit = (e) => {
   }
   e.preventDefault()
   const payload = {...this.state}
-  payload.id = this.props.busTotal + getRandomInt(2, 30)
+  payload.id = this.props.busTotal + getRandomInt(2, 60)
   delete payload.open
   // this.props.addTic(payload)
   this.setState({open: false,
